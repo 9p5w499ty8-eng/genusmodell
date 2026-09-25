@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Genuszuweisung im Zweitspracherwerb · Ein Strategiemodell · Ahmed Ayad</title>
+<link rel="icon" type="image/png" href="symbol.png">
+<link rel="apple-touch-icon" href="symbol.png">
+<meta name="theme-color" content="#0D1119">
+<meta name="description" content="Ein empirisch entwickeltes Modell der kognitiven Strategien bei der Genuszuweisung im Deutschen als Zweitsprache. Ahmed Ayad, Universität Oldenburg.">
+<style>
+  :root{
+    --pa:#FAF8F4; --pa2:#F2EEE7; --weiss:#FFFFFF; --lin:#DED7CB; --lin2:#C8BFAE;
+    --ti:#1A1D22; --t2:#4C535C; --t3:#7B8490; --ak:#8A6A2F; --ak2:#B08E4A; --bl:#2E5A87; --gn:#3C7A5E; --rt:#A44A44;}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:78px}
+  body{margin:0;background:var(--pa);color:var(--ti);
+    font:17px/1.74 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    -webkit-font-smoothing:antialiased}
+  body[dir="rtl"]{font-family:"Noto Naskh Arabic","Geeza Pro","Times New Roman",serif;line-height:2.05}
+  a{color:var(--ak);text-decoration:none} a:hover{text-decoration:underline}
+  .m{max-width:760px;margin:0 auto;padding:0 28px}
+  .weit{max-width:1040px}
+  .ui{font-family:-apple-system,"Inter","Segoe UI",system-ui,sans-serif}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(250,248,244,.94);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--lin)}
+  .kopf{display:flex;align-items:center;gap:14px;height:58px;max-width:1040px;margin:0 auto;padding:0 28px;
+    font-family:-apple-system,"Inter","Segoe UI",system-ui,sans-serif;font-size:13.5px}
+  .kopf a{color:var(--t2)}
+  .kopfsymbol{width:26px;height:26px;border-radius:6px;flex:0 0 auto}
+  .marke{font-family:-apple-system,"Inter","Segoe UI",system-ui,sans-serif;font-weight:600;
+    font-size:14px;letter-spacing:.04em;color:var(--ti);white-space:nowrap}
+  .marke b{color:var(--ak);font-weight:600}
+  .kopfT{color:var(--t3);margin-inline-start:auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .spr{display:flex;flex:0 0 auto;border:1px solid var(--lin2);border-radius:6px;overflow:hidden;margin-inline-start:16px}
+  .spr button{font:inherit;font-size:12px;font-weight:600;padding:6px 10px;border:0;cursor:pointer;background:transparent;color:var(--t3)}
+  .spr button.an{background:var(--pa2);color:var(--ti)}
+
+  .titelblatt{padding:76px 0 52px;border-bottom:1px solid var(--lin)}
+  .reihe{font-family:-apple-system,"Inter","Segoe UI",system-ui,sans-serif;font-size:12px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin:0 0 20px}
+  body[dir="rtl"] .reihe{letter-spacing:0}
+  h1{font-size:clamp(28px,4vw,42px);line-height:1.18;margin:0 0 18px;font-weight:600;letter-spacing:-.012em}
+  .unter{font-size:19px;color:var(--t2);margin:0 0 26px;line-height:1.6}
+  .autorzeile{font-family:-apple-system,"Inter","Segoe UI",system-ui,sans-serif;font-size:14px;color:var(--t2);
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+  .siegel{width:44px;height:44px;flex:0 0 auto}
+  .knopf{display:inline-block;font-family:-apple-system,"Inter","Segoe UI",system-ui,sans-serif;
+    font-size:14.5px;font-weight:600;padding:12px 24px;border-radius:5px;cursor:pointer;
+    border:1px solid var(--ti);background:var(--ti);color:var(--pa);margin-inline-end:10px;margin-bottom:8px}
+  .knopf:hover{text-decoration:none;opacity:.9}
+  .knopf.zweit{background:transparent;color:var(--ti);border-color:var(--lin2)}
+
+  section{padding:56px 0;border-bottom:1px solid var(--lin)}
+  h2{font-size:clamp(21px,2.6vw,27px);margin:0 0 16px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
+  h2 .nr{color:var(--ak);font-size:.72em;margin-inline-end:.6em;font-variant-numeric:tabular-nums}
+  h3{font-size:17px;margin:0 0 6px;font-weight:600}
+  p{color:var(--t2);margin:0 0 18px}
+  p strong, li strong{color:var(--ti);font-weight:600}
+  blockquote{margin:26px 0;padding:18px 24px;background:var(--weiss);border:1px solid var(--lin);
+    border-inline-start:3px solid var(--ak);border-radius:3px;font-size:17.5px;color:var(--ti);line-height:1.6}
+  blockquote span{display:block;margin-top:10px;font-size:13.5px;color:var(--t3);
+    font-family:-apple-system,"Inter","Segoe UI",system-ui,sans-serif}
+
+  figure{margin:30px 0;padding:0}
+  figure canvas{width:100%;height:250px;display:block;background:var(--weiss);
+    border:1px solid var(--lin);border-radius:3px}
+  figure img{width:100%;height:auto;display:block;background:var(--weiss);
+    border:1px solid var(--lin);border-radius:3px}
+  figure img.lupe{cursor:zoom-in}
+  .zoomB{font-family:-apple-system,"Inter","Segoe UI",system-ui,sans-serif;font-size:12px;font-weight:600;
+    padding:4px 10px;border-radius:4px;border:1px solid var(--lin2);background:var(--weiss);
+    color:var(--t2);cursor:pointer;margin-inline-start:6px;white-space:nowrap}
+  .zoomB:hover{border-color:var(--ak);color:var(--ak)}
+  .lupeAn{position:fixed;inset:0;z-index:100;background:rgba(12,14,18,.94);display:none;
+    align-items:center;justify-content:center;overflow:auto;padding:0}
+  .lupeAn.auf{display:flex}
+  .lupeAn img{max-width:96vw;max-height:94vh;cursor:zoom-in;transition:transform .2s;
+    box-shadow:0 20px 60px rgba(0,0,0,.5);background:#fff;border-radius:3px}
+  .lupeAn.gross{align-items:flex-start;justify-content:flex-start}
+  .lupeAn.gross img{max-width:none;max-height:none;width:210vw;cursor:zoom-out}
+  .lupeZu{position:fixed;top:16px;inset-inline-end:18px;z-index:101;
+    font-family:-apple-system,"Inter","Segoe UI",system-ui,sans-serif;font-size:13px;font-weight:600;
+    padding:8px 15px;border-radius:6px;border:1px solid rgba(255,255,255,.28);
+    background:rgba(0,0,0,.45);color:#fff;cursor:pointer}
+  figcaption{font-family:-apple-system,"Inter","Segoe UI",system-ui,sans-serif;font-size:13px;
+    color:var(--t3);margin-top:10px;line-height:1.55}
+  figcaption b{color:var(--t2);font-weight:600}
+
+  table{width:100%;border-collapse:collapse;margin:26px 0;font-size:15.5px}
+  th,td{text-align:start;padding:12px 14px;border-bottom:1px solid var(--lin);vertical-align:top;color:var(--t2)}
+  th{font-family:-apple-system,"Inter","Segoe UI",system-ui,sans-serif;font-size:12px;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--t3);font-weight:600;border-bottom:1px solid var(--lin2)}
+  body[dir="rtl"] th{letter-spacing:0}
+  td b{color:var(--ti)}
+
+  .kennz{display:flex;gap:36px;flex-wrap:wrap;margin:26px 0 0;
+    font-family:-apple-system,"Inter","Segoe UI",system-ui,sans-serif}
+  .kennz b{display:block;font-size:25px;color:var(--ti);font-weight:600;letter-spacing:-.02em}
+  .kennz span{font-size:12.5px;color:var(--t3)}
+
+  .rahmen{position:relative;border:1px solid var(--lin2);border-radius:4px;overflow:hidden;
+    background:var(--weiss);min-height:400px;display:flex;align-items:center;justify-content:center}
+  .rahmen iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:none;background:#05070B}
+  .rahmen.laeuft iframe{display:block}
+  .rahmen.laeuft .start{display:none}
+  .start{position:relative;z-index:2;text-align:center;padding:52px 26px}
+  .start p{max-width:50ch;margin:0 auto 20px;font-size:15.5px}
+  .schliessen{inset-inline-end:110px}
+  .vollbild{position:absolute;top:12px;inset-inline-end:12px;z-index:3;
+    font-family:-apple-system,"Inter","Segoe UI",system-ui,sans-serif;font-size:12.5px;font-weight:600;
+    padding:7px 13px;border-radius:5px;border:1px solid rgba(255,255,255,.3);
+    background:rgba(5,7,11,.72);color:#fff;cursor:pointer;display:none}
+  .rahmen.laeuft .vollbild{display:block}
+  .rahmen:fullscreen{min-height:100vh;border:0}
+
+  .zitierk{background:var(--pa2);border:1px solid var(--lin);border-radius:4px;padding:22px 24px;margin-top:30px}
+  .zitierk h3{font-family:-apple-system,"Inter","Segoe UI",system-ui,sans-serif;font-size:12px;
+    letter-spacing:.11em;text-transform:uppercase;color:var(--t3);margin-bottom:10px}
+  body[dir="rtl"] .zitierk h3{letter-spacing:0}
+  .zitierk p{margin:0;font-size:15.5px;color:var(--ti)}
+
+  footer{padding:40px 0 66px;color:var(--t3);font-size:13.5px;
+    font-family:-apple-system,"Inter","Segoe UI",system-ui,sans-serif}
+  .fuss{display:flex;gap:22px;flex-wrap:wrap;justify-content:space-between;max-width:1040px;margin:0 auto;padding:0 28px}
+  @media (max-width:820px){section{padding:44px 0}.kopfT{display:none}
+    figure canvas{height:180px}.rahmen{min-height:300px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kopf">
+    <img src="symbol.png" alt="" class="kopfsymbol"><span class="marke">AHMED <b>AYAD</b></span>
+    <div class="kopfT" data-t="kopfT"></div>
+    <div class="spr"><button data-spr="de">DE</button><button data-spr="en">EN</button><button data-spr="ar">ع</button></div>
+  </div>
+</header>
+
+<div class="titelblatt">
+  <div class="m">
+    <p class="reihe" data-t="reihe"></p>
+    <h1 data-t="titel"></h1>
+    <p class="unter" data-t="untertitel"></p>
+    <div class="autorzeile">
+      <svg class="siegel" viewBox="0 0 44 44" aria-hidden="true">
+        <circle cx="22" cy="22" r="20.5" fill="none" stroke="#C8BFAE" stroke-width="1"/>
+        <circle cx="22" cy="22" r="16.5" fill="none" stroke="#8A6A2F" stroke-width="0.7" opacity=".6"/>
+        <path d="M12 28.5 L17.4 15 L22.8 28.5 M14.1 24.4 H20.7" fill="none" stroke="#1A1D22" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M22.2 28.5 L27.6 15 L33 28.5 M24.3 24.4 H30.9" fill="none" stroke="#8A6A2F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div><span data-t="autor"></span></div>
+    </div>
+    <a class="knopf" href="#modell" data-t="btnModell"></a>
+    <a class="knopf zweit" href="#eins" data-t="btnLesen"></a>
+  </div>
+</div>
+
+<section id="eins">
+  <div class="m">
+    <h2><span class="nr">1</span><span data-t="h1t"></span></h2>
+    <p data-t="p11"></p>
+    <blockquote data-t="zitat1"></blockquote>
+    <p data-t="p12"></p>
+    <p data-t="p13"></p>
+  </div>
+</section>
+
+<section id="zwei">
+  <div class="m">
+    <h2><span class="nr">2</span><span data-t="h2t"></span></h2>
+    <p data-t="p21"></p>
+    <p data-t="p22"></p>
+  </div>
+</section>
+
+<section id="drei">
+  <div class="m">
+    <h2><span class="nr">3</span><span data-t="h3t"></span></h2>
+    <p data-t="p31"></p>
+    <table>
+      <tr><th data-t="thQ"></th><th data-t="thW"></th></tr>
+      <tr><td><b data-t="q1H"></b></td><td data-t="q1P"></td></tr>
+      <tr><td><b data-t="q2H"></b></td><td data-t="q2P"></td></tr>
+      <tr><td><b data-t="q3H"></b></td><td data-t="q3P"></td></tr>
+      <tr><td><b data-t="q4H"></b></td><td data-t="q4P"></td></tr>
+      <tr><td><b data-t="q5H"></b></td><td data-t="q5P"></td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="vier">
+  <div class="m">
+    <h2><span class="nr">4</span><span data-t="h4t"></span></h2>
+    <p data-t="p41"></p>
+    <figure>
+      <canvas id="abb1" aria-hidden="true"></canvas>
+      <figcaption><b data-t="abb1B"></b> <span data-t="abb1T"></span></figcaption>
+    </figure>
+    <p data-t="p42"></p>
+    <p data-t="p43"></p>
+    <figure>
+      <img src="abb51.jpg" alt="" class="lupe">
+      <figcaption><b data-t="abb2B"></b> <span data-t="abb2T"></span> <button class="zoomB" data-bild="abb51.jpg" data-t="zoom"></button></figcaption>
+    </figure>
+    <p data-t="p44"></p>
+    <figure>
+      <img src="abb52.jpg" alt="" class="lupe">
+      <figcaption><b data-t="abb3B"></b> <span data-t="abb3T"></span> <button class="zoomB" data-bild="abb52.jpg" data-t="zoom"></button></figcaption>
+    </figure>
+    <div class="kennz">
+      <div><b>3.787</b><span data-t="kz1"></span></div>
+      <div><b>225</b><span data-t="kz2"></span></div>
+      <div><b>6</b><span data-t="kz3"></span></div>
+      <div><b>8</b><span data-t="kz4"></span></div>
+    </div>
+  </div>
+</section>
+
+<section id="modell">
+  <div class="m weit">
+    <h2><span class="nr">5</span><span data-t="h5t"></span></h2>
+    <p data-t="p51"></p>
+    <div class="rahmen" id="rahmen">
+      <button class="vollbild" id="vollbild" data-t="voll"></button>
+      <button class="vollbild schliessen" id="schliessen" data-t="zu"></button>
+      <div class="start">
+        <h3 data-t="startH"></h3>
+        <p data-t="startP"></p>
+        <button class="knopf ui" id="starten" data-t="startB"></button>
+        <p style="margin-top:14px;font-size:13.5px"><a href="#" id="neuesFenster" data-t="startF"></a></p>
+      </div>
+      <iframe id="modellrahmen" title="Modell" allow="autoplay; fullscreen"></iframe>
+    </div>
+    <figcaption style="margin-top:12px"><b data-t="abb4B"></b> <span data-t="abb4T"></span></figcaption>
+  </div>
+</section>
+
+<section id="sechs">
+  <div class="m">
+    <h2><span class="nr">6</span><span data-t="h6t"></span></h2>
+    <p data-t="p61"></p>
+    <p data-t="p62"></p>
+    <div class="zitierk">
+      <h3 data-t="zitierH"></h3>
+      <p data-t="zitierP"></p>
+    </div>
+    <p style="margin-top:26px"><a href="index.html#kontakt" data-t="kontaktL"></a></p>
+  </div>
+</section>
+
+<div class="lupeAn" id="lupeAn">
+  <button class="lupeZu" id="lupeZu" data-t="zu"></button>
+  <img id="lupeBild" alt="">
+</div>
+
+<footer>
+  <div class="fuss">
+    <div data-t="fussL"></div>
+    <div><a href="https://ahmedayad.de" data-t="portfolio"></a></div>
+  </div>
+</footer>
+
+<script>
+window.TEXT = {"de": {"p11": "Im Unterricht wiederholt sich ein Muster: Lernende beherrschen die Regeln, benennen sie auf Nachfrage korrekt, und greifen bei bestimmten Wörtern dennoch verlässlich daneben. Umgekehrt treffen sie Wörter sicher, für die es keine Regel gibt. Ein reines Wissensdefizit erklärt das nicht.", "zitat1": "Das Mädchen ist grammatisch neutrum, semantisch aber weiblich. Die formale Information und die inhaltliche widersprechen einander, und beide sind im Kopf gleichzeitig verfügbar.<span>Ein klassischer Konfliktfall zwischen morphologischer Form und semantischem Feld</span>", "p12": "Hinzu kommt: Ein Teil der Fehler ist nicht zufällig über die Gruppe verteilt. Lernende mit derselben Erstsprache irren an denselben Stellen, und zwar systematisch in dieselbe Richtung. Andere kämpfen mit Wortgruppen, die für die erste Gruppe unauffällig sind. Das deutet auf Transfer aus der Erstsprache hin, nicht auf mangelnde Übung.", "p13": "Drittens wirkt eine Ebene, die von außen unsichtbar bleibt: der Klang. Silbenstruktur, Auslaut und Wortlänge tragen im Deutschen statistische Information über das Genus, ohne dass sie je unterrichtet würde. Wer diese Information nutzt, liegt häufiger richtig, kann aber nicht sagen, warum.", "p21": "Den theoretischen Rahmen bildet die kognitive Beschreibung des deutschen Genussystems von Zubin und Köpcke, in der formale, phonologische und semantische Prinzipien nebeneinander wirken und einander überlagern können. Genus ist danach kein willkürliches Etikett, sondern das Ergebnis mehrerer konkurrierender Zuweisungsprinzipien mit unterschiedlicher Reichweite und unterschiedlicher Verlässlichkeit.", "p22": "Für den Zweitspracherwerb kommen zwei Faktoren hinzu, die in der muttersprachlichen Beschreibung keine Rolle spielen: der Transfer aus der Erstsprache und der Grad der Automatisierung. Beide entscheiden mit darüber, welches Prinzip im Moment der Entscheidung überhaupt zum Zug kommt. Genau an dieser Stelle setzt das Modell an.", "p31": "Grundlage sind fünf Informationsquellen, die pro Wort und pro Person erhoben oder berechnet wurden. Sie beschreiben nicht, was die Lernenden wissen sollten, sondern was im Moment der Entscheidung verfügbar ist.", "q1H": "Morphophonologische Information", "q1P": "Endung, Silbenstruktur und Auslaut als formale Hinweise auf das Genus, samt ihrer statistischen Verlässlichkeit im deutschen Wortschatz.", "q2H": "Semantisches Feld", "q2P": "Zugehörigkeit zu Bedeutungsklassen, darunter der Sonderfall des biologischen Geschlechts, der der formalen Information widersprechen kann.", "q3H": "Regularität und Ausnahme", "q3P": "Ob ein Wort der Regel folgt, sie verletzt oder in einem Bereich liegt, in dem mehrere Prinzipien gegeneinander stehen.", "q4H": "Transferlage der Erstsprache", "q4P": "Ob die Erstsprache Genus kennt, ob das Äquivalent dasselbe Genus trägt und ob der Transfer stützt oder in die Irre führt.", "q5H": "Frequenz als Auslöser", "q5P": "Objektive Häufigkeit im Korpus und individuelle Vertrautheit mit dem Wort. Sie entscheidet, ob überhaupt ein gespeicherter Eintrag abgerufen werden kann oder ob verrechnet werden muss.", "p41": "Jede Entscheidung wurde nicht nur auf ihre Richtigkeit geprüft, sondern auf Reaktionszeit und auf die anschließende Sicherheitseinschätzung. Diese Verbindung trennt das, was eine Trefferquote allein verschweigt: schnelles, automatisiertes Abrufen von langsamem Verrechnen und von geratenen Treffern, die zufällig richtig ausfallen.", "p42": "Auf dieser Grundlage wurden gemischte Modelle über Personen und Items gerechnet und die Strategien so lange gegeneinander geprüft, bis sich eine stabile, konvergierende Lösung ergab. Ergänzt wurde sie durch Nachbefragungen zu den kritischen Fällen, in denen weder Regel noch Transfer die richtige Antwort erklärt. Das Ergebnis ist kein Regelkatalog, sondern ein Wegmodell: Es zeigt, welcher Weg unter welchen Bedingungen genommen wird und wohin er führt.", "kz1": "ausgewertete Entscheidungen", "kz2": "Testwörter", "kz3": "unterschiedene Strategien", "kz4": "Erstsprachen im Modell", "p51": "Das Modell läuft im Browser. Eine Erzählstimme führt durch den Aufbau, von der Fragestellung über die einzelnen Stationen bis zu den möglichen Ausgängen. Am Ende steht ein eigener Durchgang: ein Wort ohne Artikel, eine Entscheidung unter Zeitdruck, die eigene Sicherheitseinschätzung, und anschließend der Weg, den die eigene Antwort im Modell genommen hat.", "p61": "Das Modell beschreibt die Datenlage, aus der es entstanden ist. Ob es über diese Gruppe hinaus trägt, ist eine offene empirische Frage. Vorgesehen ist die Prüfung an weiteren Erstsprachen und an größeren Stichproben, ebenso die Erweiterung um Wortgruppen, die bislang unterrepräsentiert sind.", "p62": "Für Replikationen, gemeinsame Erhebungen oder die Verwendung im Unterricht stehe ich gern zur Verfügung. Kritik an Aufbau, Modellierung und Interpretation ist willkommen, denn genau daran entscheidet sich, ob das Modell trägt.", "zurueck": "← Zur Übersicht", "kopfT": "Modell der Genuszuweisung im Zweitspracherwerb", "reihe": "Forschungsmodell · Deutsch als Zweitsprache · Universität Oldenburg", "titel": "Strategien der Genuszuweisung im Zweitspracherwerb", "untertitel": "Ein empirisch entwickeltes Modell der Wege, auf denen Lernende das Genus eines deutschen Nomens bestimmen.", "autor": "<b>Ahmed Ayad</b> · Modell, Datenerhebung und Umsetzung · Masterarbeit, Carl von Ossietzky Universität Oldenburg, 2026", "btnModell": "Zum Modell", "btnLesen": "Von vorn lesen", "h1t": "Ausgangspunkt", "h2t": "Theoretischer Rahmen", "h3t": "Erhobene Größen", "h4t": "Vorgehen und Modellbildung", "h5t": "Das Modell", "h6t": "Stand und Weiterarbeit", "thQ": "Größe", "thW": "Was sie erfasst", "abb1B": "Abbildung 1.", "abb1T": "Schematische Darstellung der Strategiezuordnung. Aus den vier Prozessindikatoren Lemma-Verfügbarkeit, Reaktionszeit, Konfidenz und Korrektheit wird für jeden Durchgang eine von sechs Strategien bestimmt. Die Abbildung durchläuft beispielhafte Konstellationen; die Schwellenwerte sind in Kapitel 3 der Arbeit festgelegt.", "abb2B": "Abbildung 2.", "abb2T": "Erweitertes Zwei-Pfad-Modell der L2-Genuszuweisung mit getrennten L1- und L2-Lemmata. Die Zuweisung verläuft über zwei qualitativ verschiedene Pfade, deren Zugang die getrennt repräsentierten Lemma-Einträge steuern. Kennwerte aus dem bayesschen multinomialen GLMM (N = 3.787 Realwort-Trials, brms 2.23.0, max R̂ = 1,003). Gestrichelte Elemente kennzeichnen theoretische Modellannahmen, die durch die Daten gestützt, aber nicht als eigene Prädiktoren gemessen sind. <i>Aus Ayad (2026: 167).</i>", "abbA": "Wort", "abbB": "Entscheidung", "startH": "Modell starten", "startP": "Öffnet sich über den ganzen Bildschirm, mit Erzählstimme. Kopfhörer oder Lautsprecher empfohlen.", "startB": "Modell öffnen", "voll": "Vollbild", "zitierH": "Zitiervorschlag", "zitierP": "Ayad, A. (2026). <i>Strategien der Genuszuweisung im Zweitspracherwerb: ein empirisch entwickeltes Modell.</i> Masterarbeit, Carl von Ossietzky Universität Oldenburg. Interaktive Fassung.", "kontaktL": "Anfragen zu Replikation, gemeinsamer Erhebung oder Verwendung im Unterricht →", "fussL": "Ahmed Ayad · Modell der Genuszuweisung im Zweitspracherwerb", "aI1": "Lemma-Verfügbarkeit", "aI2": "Reaktionszeit", "aI3": "Konfidenz", "aI4": "Korrektheit", "aW1a": "verfügbar", "aW1b": "nicht verfügbar", "aW2a": "unter dem Median", "aW2b": "über dem Median", "aW3a": "hoch", "aW3b": "mittel", "aW3c": "niedrig", "aW4a": "richtig", "aW4b": "falsch", "aS1": "Lexikalischer Abruf", "aS2": "Priming", "aS3": "Regelverrechnung", "aS4": "Kompetenzfehler", "aS5": "Rückfall-Default", "aS6": "Abruf, nicht automatisiert", "zu": "Schließen", "startF": "Lieber in einem neuen Fenster öffnen, etwa für eine Präsentation", "portfolio": "Mehr zu meiner Arbeit →", "abb3B": "Abbildung 3.", "abb3T": "Die kritischen Ausnahmen als Sonderfall des ersten Pfades. Da Regelroute und transfergestützte Route ausgeschlossen sind, ist die korrekte Zuweisung alternativlos auf den intralingualen L2-Abruf festgelegt. Der Automatisierungsgrad verändert nicht die Route, sondern den Grad der L2-Konsolidierung, gesteuert über die individuelle Token-Frequenz. <i>Aus Ayad (2026: 176).</i>", "abb4B": "Abbildung 4.", "abb4T": "Das interaktive Modell. Es öffnet sich über den ganzen Bildschirm und enthält eine vertonte Einführung sowie einen eigenen Testdurchgang.", "zoom": "Vergrößern", "p43": "Aus dieser Auswertung ist das folgende Modell hervorgegangen. Es trennt zwei qualitativ verschiedene Pfade: den automatisierten Abruf, der bei verfügbarem Lemma greift und je nach Herkunft des Eintrags intralingual oder transfergestützt verläuft, und die bewusste Verrechnung, die einsetzt, wenn kein gespeicherter Eintrag verfügbar ist. Die Zahlen in den Kästen sind die tatsächlichen Fallzahlen der Studie.", "p44": "Ein Sonderfall verdient eigene Betrachtung. Bei Ausnahmen mit negativem Transfer aus der Erstsprache sind beide Normalwege versperrt: Die Regel führt zur falschen Form, und der Transfer ebenfalls. Die korrekte Antwort ist dann nur über den intralingualen Abruf erreichbar, und ob sie schnell oder mühsam zustande kommt, hängt allein davon ab, wie vertraut das einzelne Wort ist."}, "en": {"p11": "One pattern keeps recurring in teaching: learners command the rules, state them correctly when asked, and still miss reliably on certain words. Conversely they are confident on words for which no rule exists. A simple knowledge gap does not account for this.", "zitat1": "Das Mädchen is grammatically neuter but semantically female. Formal and semantic information contradict each other, and both are available in the mind at the same moment.<span>A classic conflict between morphological form and semantic field</span>", "p12": "Moreover, part of the error pattern is not randomly distributed. Learners sharing a first language miss in the same places, systematically in the same direction, while others struggle with word groups that the first group handles without difficulty. This points to transfer from the first language rather than to insufficient practice.", "p13": "A third level operates invisibly from the outside: sound. Syllable structure, final segment and word length carry statistical information about gender in German without ever being taught. Those who exploit it are right more often, but cannot say why.", "p21": "The theoretical frame is the cognitive account of the German gender system by Zubin and Köpcke, in which formal, phonological and semantic principles operate side by side and can override one another. Gender is not an arbitrary label but the outcome of several competing assignment principles differing in scope and reliability.", "p22": "Second language acquisition adds two factors absent from the native description: transfer from the first language and the degree of automatisation. Together they determine which principle is available at all in the moment of decision. That is precisely where this model begins.", "p31": "The basis is five sources of information, collected or computed per word and per person. They describe not what learners ought to know, but what is available at the moment of decision.", "q1H": "Morphophonological information", "q1P": "Ending, syllable structure and final segment as formal cues to gender, together with their statistical reliability in the German lexicon.", "q2H": "Semantic field", "q2P": "Membership in meaning classes, including the special case of biological sex, which may contradict the formal information.", "q3H": "Regularity and exception", "q3P": "Whether a word follows the rule, violates it, or sits in a zone where several principles compete.", "q4H": "Transfer configuration", "q4P": "Whether the first language marks gender, whether the equivalent carries the same gender, and whether transfer supports or misleads.", "q5H": "Frequency as trigger", "q5P": "Corpus frequency and individual familiarity with the word. It decides whether a stored entry can be retrieved at all, or whether computation is required.", "p41": "Every decision was examined not only for accuracy but for response time and the subsequent confidence rating. That combination separates what accuracy alone conceals: fast automatised retrieval, slow computation, and lucky guesses that happen to be correct.", "p42": "On this basis mixed models were fitted across participants and items, and the strategies were tested against one another until a stable, converging solution emerged. Follow-up interviews addressed the critical cases in which neither rule nor transfer explains the correct answer. The result is not a catalogue of rules but a model of routes: it shows which route is taken under which conditions, and where it leads.", "kz1": "decisions analysed", "kz2": "test items", "kz3": "strategies distinguished", "kz4": "first languages in the model", "p51": "The model runs in the browser. A narrated walkthrough leads from the research question through the individual stations to the possible outcomes. At the end comes your own trial: a noun without its article, a decision under time pressure, your own confidence rating, and then the route your answer took through the model.", "p61": "The model describes the data from which it emerged. Whether it carries beyond this group is an open empirical question. Testing against further first languages and larger samples is planned, as is extension to word groups that are so far underrepresented.", "p62": "I am glad to support replications, joint data collection or classroom use. Criticism of design, modelling and interpretation is welcome, since that is exactly what decides whether the model holds.", "zurueck": "← Back to overview", "kopfT": "A model of gender assignment in second language German", "reihe": "Research model · German as a second language · University of Oldenburg", "titel": "Strategies of gender assignment in second language German", "untertitel": "An empirically developed model of the routes by which learners determine the gender of a German noun.", "autor": "<b>Ahmed Ayad</b> · model, data collection and implementation · master's thesis, University of Oldenburg, 2026", "btnModell": "Go to the model", "btnLesen": "Read from the start", "h1t": "Starting point", "h2t": "Theoretical frame", "h3t": "Variables collected", "h4t": "Procedure and model building", "h5t": "The model", "h6t": "Status and further work", "thQ": "Variable", "thW": "What it captures", "abb1B": "Figure 1.", "abb1T": "Schematic representation of strategy classification. From the four process indicators — lemma availability, response time, confidence and accuracy — one of six strategies is determined for each trial. The figure cycles through example constellations; the thresholds are defined in chapter 3 of the thesis.", "abb2B": "Figure 2.", "abb2T": "Extended two-route model of L2 gender assignment with separate L1 and L2 lemmas. Assignment proceeds along two qualitatively different routes, access to which is governed by separately represented lemma entries. Estimates from the Bayesian multinomial GLMM (N = 3,787 real-word trials, brms 2.23.0, max R̂ = 1.003). Dashed elements mark theoretical assumptions supported by the data but not measured as separate predictors. <i>From Ayad (2026: 167).</i>", "abbA": "word", "abbB": "decision", "startH": "Start the model", "startP": "Opens full screen, with narration. Headphones or speakers recommended.", "startB": "Open the model", "voll": "Full screen", "zitierH": "Suggested citation", "zitierP": "Ayad, A. (2026). <i>Strategies of gender assignment in second language German: an empirically developed model.</i> Master's thesis, University of Oldenburg. Interactive version.", "kontaktL": "Enquiries about replication, joint data collection or classroom use →", "fussL": "Ahmed Ayad · Model of gender assignment in second language German", "aI1": "lemma availability", "aI2": "response time", "aI3": "confidence", "aI4": "accuracy", "aW1a": "available", "aW1b": "not available", "aW2a": "below the median", "aW2b": "above the median", "aW3a": "high", "aW3b": "medium", "aW3c": "low", "aW4a": "correct", "aW4b": "incorrect", "aS1": "lexical retrieval", "aS2": "priming", "aS3": "rule computation", "aS4": "competence error", "aS5": "fallback default", "aS6": "retrieval, not automatised", "zu": "Close", "startF": "Open in a new window instead, for example for a presentation", "portfolio": "More about my work →", "abb3B": "Figure 3.", "abb3T": "The critical exceptions as a special case of the first route. Since both the rule route and the transfer-supported route are excluded, correct assignment is confined to intralingual L2 retrieval. The degree of automatisation does not change the route but the degree of L2 consolidation, governed by individual token frequency. <i>From Ayad (2026: 176).</i>", "abb4B": "Figure 4.", "abb4T": "The interactive model. It opens full screen and contains a narrated introduction as well as a trial you can take yourself.", "zoom": "Enlarge", "p43": "The following model emerged from this analysis. It separates two qualitatively different routes: automatised retrieval, which applies when a lemma is available and runs either intralingually or via transfer depending on the entry's origin, and deliberate computation, which takes over when no stored entry is available. The figures in the boxes are the actual counts from the study.", "p44": "One special case deserves separate attention. For exceptions with negative transfer from the first language, both ordinary routes are blocked: the rule yields the wrong form, and so does transfer. The correct answer is then reachable only through intralingual retrieval, and whether it comes quickly or with effort depends solely on how familiar the individual word is."}, "ar": {"p11": "يتكرّر في التدريس نمط واحد: يتقن المتعلّمون القواعد ويذكرونها بدقّة عند السؤال، ومع ذلك يخطئون بانتظام في كلمات بعينها، بينما يصيبون بثقة في كلمات لا قاعدة لها. نقص المعرفة وحده لا يفسّر ذلك.", "zitat1": "«das Mädchen» محايد نحويًا ومؤنّث دلاليًا. المعلومة الشكلية والمعلومة الدلالية تتعارضان، وكلتاهما حاضرة في الذهن في اللحظة نفسها.<span>حالة تعارض نموذجية بين الصيغة الصرفية والحقل الدلالي</span>", "p12": "ثم إنّ جزءًا من الأخطاء ليس موزّعًا عشوائيًا: المتعلّمون ذوو اللغة الأم نفسها يخطئون في المواضع نفسها وفي الاتجاه نفسه، بينما يتعثّر غيرهم في مجموعات كلمات لا تمثّل صعوبة للأولين. وهذا يشير إلى النقل من اللغة الأم لا إلى قلّة التمرين.", "p13": "وثمّة مستوى ثالث يعمل دون أن يُرى: الصوت. فبنية المقطع والصامت الأخير وطول الكلمة تحمل في الألمانية معلومة إحصائية عن الجنس دون أن تُدرَّس قطّ. ومن يستثمرها يصيب أكثر، لكنه لا يستطيع تعليل إصابته.", "p21": "الإطار النظري هو الوصف المعرفي لنظام الجنس في الألمانية عند زوبين وكوبكه، حيث تعمل المبادئ الشكلية والصوتية والدلالية جنبًا إلى جنب وقد يَغلب بعضها بعضًا. فالجنس النحوي ليس وسمًا اعتباطيًا، بل حصيلة مبادئ إسناد متنافسة تتفاوت في مداها وفي درجة موثوقيتها.", "p22": "ويضيف اكتساب اللغة الثانية عاملين غائبين عن الوصف الخاص بالناطقين الأصليين: النقل من اللغة الأم، ودرجة الأتمتة. وهما معًا يحدّدان أيّ المبادئ متاح أصلًا في لحظة القرار. ومن هنا ينطلق هذا النموذج.", "p31": "يقوم النموذج على خمسة مصادر للمعلومة، جُمعت أو حُسبت لكل كلمة ولكل شخص. وهي لا تصف ما ينبغي أن يعرفه المتعلّم، بل ما هو متاح فعلًا في لحظة القرار.", "q1H": "المعلومة الصرفية الصوتية", "q1P": "اللاحقة وبنية المقطع والصامت الأخير بوصفها مؤشّرات شكلية على الجنس، مع درجة موثوقيتها الإحصائية في المعجم الألماني.", "q2H": "الحقل الدلالي", "q2P": "الانتماء إلى طبقات المعنى، ومنها الحالة الخاصة للجنس البيولوجي التي قد تناقض المعلومة الشكلية.", "q3H": "الاطّراد والاستثناء", "q3P": "هل تتبع الكلمة القاعدة أم تخالفها أم تقع في منطقة تتنازع فيها عدّة مبادئ.", "q4H": "وضع النقل من اللغة الأم", "q4P": "هل تعرف اللغة الأم الجنس النحوي، وهل يحمل المقابل الجنس نفسه، وهل يَسند النقل أم يُضلّل.", "q5H": "التواتر محفّزًا", "q5P": "التواتر في المدوّنة والألفة الفردية بالكلمة. وهو ما يحسم إمكان استرجاع مدخل مخزون أصلًا، أو ضرورة الحساب.", "p41": "لم يُفحص كل قرار من جهة صحّته فحسب، بل من جهة زمن الاستجابة ودرجة اليقين التي تلته. وهذا الجمع يفصل ما تُخفيه نسبة الإصابة وحدها: الاسترجاع الآلي السريع، والحساب البطيء، والتخمين الذي يصادف الصواب.", "p42": "وعلى هذا الأساس حُسبت نماذج مختلطة عبر الأشخاص والمفردات، واختُبرت الاستراتيجيات بعضها في مواجهة بعض إلى أن استقرّ حلّ متقارب. ثم استُكملت بمقابلات حول الحالات الحرجة التي لا تفسّرها القاعدة ولا النقل. والحصيلة ليست قائمة قواعد، بل نموذج مسارات: يبيّن أيّ مسار يُسلك في أي شرط، وإلى أين يفضي.", "kz1": "قرارًا محلَّلًا", "kz2": "مفردة اختبار", "kz3": "استراتيجيات مميَّزة", "kz4": "لغات أمّ في النموذج", "p51": "يعمل النموذج في المتصفّح. يقود سردٌ صوتي عبر البناء، من الإشكالية إلى المحطات فالمخارج الممكنة. وفي النهاية تجربة خاصة بك: كلمة بلا أداة تعريف، وقرار تحت ضغط الوقت، وتقدير لدرجة يقينك، ثم عرض المسار الذي سلكته إجابتك داخل النموذج.", "p61": "يصف النموذج البيانات التي نشأ عنها. أمّا امتداده إلى ما وراء هذه المجموعة فسؤال تجريبي مفتوح. ومن المقرّر اختباره على لغات أمّ أخرى وعلى عيّنات أوسع، وتوسيعه ليشمل مجموعات كلمات ما زالت ناقصة التمثيل.", "p62": "ويسعدني الإسهام في إعادة الاختبار أو في جمع بيانات مشترك أو في الاستعمال الصفّي. والنقد لبناء النموذج ونمذجته وتأويله مرحَّب به، فهو وحده ما يحسم صموده.", "zurueck": "← إلى الصفحة الرئيسية", "kopfT": "نموذج إسناد الجنس النحوي في اكتساب الألمانية لغةً ثانية", "reihe": "نموذج بحثي · الألمانية لغةً ثانية · جامعة أولدنبورغ", "titel": "استراتيجيات إسناد الجنس النحوي في اكتساب الألمانية لغةً ثانية", "untertitel": "نموذج تجريبي للمسارات التي يحدّد بها المتعلّمون جنس الاسم الألماني.", "autor": "<b>أحمد عياد</b> · النموذج وجمع البيانات والتنفيذ · رسالة ماجستير، جامعة أولدنبورغ، 2026", "btnModell": "إلى النموذج", "btnLesen": "القراءة من البداية", "h1t": "نقطة الانطلاق", "h2t": "الإطار النظري", "h3t": "المتغيّرات المرصودة", "h4t": "المنهج وبناء النموذج", "h5t": "النموذج", "h6t": "الحالة ومسار العمل", "thQ": "المتغيّر", "thW": "ما يرصده", "abb1B": "الشكل ١.", "abb1T": "تمثيل تخطيطي لتصنيف الاستراتيجية. من المؤشّرات الأربعة، وهي توافر المدخل المعجمي وزمن الاستجابة ودرجة اليقين وصحّة الإجابة، تُحدَّد لكل محاولة استراتيجية من ستّ. ويعرض الشكل تشكيلات تمثيلية؛ أمّا العتبات فمحدّدة في الفصل الثالث من الرسالة.", "abb2B": "الشكل ٢.", "abb2T": "نموذج المسارين الموسَّع لإسناد الجنس النحوي في اللغة الثانية، بمدخلين معجميين منفصلين للغة الأم واللغة الثانية. يجري الإسناد عبر مسارين مختلفين نوعيًا، ويضبط الدخولَ إليهما تمثيلُ المدخل المعجمي المنفصل. المؤشّرات من النموذج المختلط البايزي متعدّد الحدود (ن = ٣٧٨٧ محاولة، brms 2.23.0، أقصى R̂ = 1,003). العناصر المتقطّعة تشير إلى افتراضات نظرية تدعمها البيانات دون أن تُقاس كمتنبّئات مستقلة. <i>من عياد (٢٠٢٦: ١٦٧).</i>", "abbA": "الكلمة", "abbB": "القرار", "startH": "بدء النموذج", "startP": "يُفتح على كامل الشاشة مع سرد صوتي. يُستحسن استعمال سمّاعات أو مكبّر.", "startB": "فتح النموذج", "voll": "ملء الشاشة", "zitierH": "صيغة الاقتباس المقترحة", "zitierP": "عياد، أ. (٢٠٢٦). <i>استراتيجيات إسناد الجنس النحوي في اكتساب الألمانية لغةً ثانية: نموذج تجريبي.</i> رسالة ماجستير، جامعة أولدنبورغ. النسخة التفاعلية.", "kontaktL": "للاستفسار عن إعادة الاختبار أو جمع بيانات مشترك أو الاستعمال الصفّي ←", "fussL": "أحمد عياد · نموذج إسناد الجنس النحوي في اكتساب الألمانية لغةً ثانية", "aI1": "توافر المدخل المعجمي", "aI2": "زمن الاستجابة", "aI3": "درجة اليقين", "aI4": "صحّة الإجابة", "aW1a": "متوافر", "aW1b": "غير متوافر", "aW2a": "دون الوسيط", "aW2b": "فوق الوسيط", "aW3a": "مرتفعة", "aW3b": "متوسطة", "aW3c": "منخفضة", "aW4a": "صحيحة", "aW4b": "خاطئة", "aS1": "استرجاع معجمي", "aS2": "تنشيط مسبق", "aS3": "تطبيق القاعدة", "aS4": "خطأ كفاءة", "aS5": "حلّ احتياطي", "aS6": "استرجاع غير مؤتمت", "zu": "إغلاق", "startF": "يمكن فتحه في نافذة جديدة، مثلًا لأغراض العرض", "portfolio": "المزيد عن عملي ←", "abb3B": "الشكل ٣.", "abb3T": "الاستثناءات الحرجة بوصفها حالة خاصة من المسار الأول. وباستبعاد مسار القاعدة والمسار المستند إلى النقل، يبقى الإسناد الصحيح محصورًا في الاسترجاع الداخلي في اللغة الثانية. ودرجة الأتمتة لا تغيّر المسار بل درجة الترسّخ، وهي محكومة بالتواتر الفردي للكلمة. <i>من عياد (٢٠٢٦: ١٧٦).</i>", "abb4B": "الشكل ٤.", "abb4T": "النموذج التفاعلي. يُفتح على كامل الشاشة ويتضمّن مقدّمة مسرودة صوتيًا وتجربة يمكن خوضها بالنفس.", "zoom": "تكبير", "p43": "من هذا التحليل انبثق النموذج التالي. وهو يفصل مسارين مختلفين نوعيًا: الاسترجاع المؤتمت، ويعمل عند توافر المدخل المعجمي ويجري داخليًا أو عبر النقل بحسب منشأ المدخل؛ والحساب الواعي، ويتولّى الأمر حين لا يتوافر مدخل مخزون. والأرقام داخل المربّعات هي الأعداد الفعلية في الدراسة.", "p44": "وثمّة حالة خاصة تستحقّ نظرًا مستقلًا. ففي الاستثناءات ذات النقل السلبي من اللغة الأم ينسدّ المساران المعتادان معًا: القاعدة تُفضي إلى صيغة خاطئة، والنقل كذلك. عندئذٍ لا تُبلَغ الإجابة الصحيحة إلا عبر الاسترجاع الداخلي، وسرعتها أو مشقّتها رهن بمدى الألفة بالكلمة بعينها."}};
+</script>
+<script>
+function setze(spr){
+  var T = TEXT[spr] || TEXT.de;
+  document.querySelectorAll("[data-t]").forEach(function(el){
+    var v = T[el.dataset.t]; if (v !== undefined) el.innerHTML = v;
+  });
+  document.documentElement.lang = spr;
+  var rtl = (spr === "ar");
+  document.documentElement.dir = rtl ? "rtl" : "ltr";
+  document.body.dir = rtl ? "rtl" : "ltr";
+  document.querySelectorAll(".spr button").forEach(function(b){ b.classList.toggle("an", b.dataset.spr === spr); });
+  try { localStorage.setItem("sprache", spr); } catch(e){}
+}
+document.querySelectorAll(".spr button").forEach(function(b){
+  b.addEventListener("click", function(){ setze(b.dataset.spr); });
+});
+
+/* Lupenansicht: Bild groß, ein Klick vergrößert weiter, Escape schließt. */
+(function lupe(){
+  var an = document.getElementById("lupeAn"), bild = document.getElementById("lupeBild");
+  function auf(quelle){
+    bild.src = quelle; an.classList.add("auf"); an.classList.remove("gross");
+    document.body.style.overflow = "hidden";
+  }
+  function zu(){ an.classList.remove("auf","gross"); document.body.style.overflow = ""; }
+  document.querySelectorAll("img.lupe").forEach(function(i){
+    i.addEventListener("click", function(){ auf(i.getAttribute("src")); });
+  });
+  document.querySelectorAll(".zoomB").forEach(function(b){
+    b.addEventListener("click", function(){ auf(b.dataset.bild); });
+  });
+  bild.addEventListener("click", function(e){ an.classList.toggle("gross"); e.stopPropagation(); });
+  an.addEventListener("click", zu);
+  document.getElementById("lupeZu").addEventListener("click", zu);
+  addEventListener("keydown", function(e){ if (e.key === "Escape") zu(); });
+})();
+
+var rahmen = document.getElementById("rahmen"), rf = document.getElementById("modellrahmen");
+document.getElementById("starten").addEventListener("click", function(){
+  if (!rf.src) rf.src = "Genuszuweisung_Modell_3D.html";
+  rahmen.classList.add("laeuft");
+  if (rahmen.requestFullscreen) rahmen.requestFullscreen().catch(function(){});
+  else if (rahmen.webkitRequestFullscreen) rahmen.webkitRequestFullscreen();
+});
+/* Schließen: verlässt das Vollbild, blendet das Modell aus und stellt die
+   Leseposition wieder her, damit man dort weiterliest, wo man aufgehört hat. */
+document.getElementById("schliessen").addEventListener("click", function(){
+  if (document.fullscreenElement) document.exitFullscreen();
+  rahmen.classList.remove("laeuft");
+  rf.src = "";                       /* hält den Ton an und gibt Speicher frei */
+  document.getElementById("modell").scrollIntoView({block:"start"});
+});
+document.getElementById("neuesFenster").addEventListener("click", function(e){
+  e.preventDefault();
+  window.open("Genuszuweisung_Modell_3D.html", "_blank", "noopener");
+});
+document.getElementById("vollbild").addEventListener("click", function(){
+  if (document.fullscreenElement) document.exitFullscreen();
+  else if (rahmen.requestFullscreen) rahmen.requestFullscreen().catch(function(){});
+  else if (rahmen.webkitRequestFullscreen) rahmen.webkitRequestFullscreen();
+});
+
+/* =====================================================================
+   Abbildung 1: die Klassifikation einer Antwort.
+
+   Aus vier Prozessindikatoren, nämlich Lemma-Verfügbarkeit, Reaktionszeit,
+   Konfidenz und Korrektheit, wird jeweils eine von sechs Strategien
+   bestimmt. Die Abbildung durchläuft beispielhafte Konstellationen und
+   hebt die zugeordnete Strategie hervor. Sie ist schematisch; die
+   Schwellenwerte sind in Kapitel 3 der Arbeit festgelegt.
+   ===================================================================== */
+(function abbildung(){
+  var c = document.getElementById("abb1");
+  if (!c || !c.getContext) return;
+  var x = c.getContext("2d");
+  var ruhig = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var TINTE = "#1A1D22", GRAU = "#7B8490", LIN = "#DED7CB", AK = "#8A6A2F",
+      GN = "#3C7A5E", BL = "#2E5A87", RT = "#A44A44";
+  /* Beispielkonstellationen: [Lemma, Reaktionszeit, Konfidenz, Korrektheit] → Strategie */
+  var FAELLE = [
+    {w:[0,0,0,0], s:0, f:GN},   /* verfügbar · schnell · hoch · richtig      → lexikalischer Abruf */
+    {w:[0,0,0,0], s:1, f:GN},   /* wie oben, nach vorheriger Aktivierung     → Priming */
+    {w:[0,1,1,0], s:2, f:BL},   /* verfügbar · langsam · mittel · richtig    → Regelverrechnung */
+    {w:[0,0,0,1], s:3, f:RT},   /* verfügbar · schnell · hoch · falsch       → Kompetenzfehler */
+    {w:[1,0,2,1], s:4, f:RT},   /* nicht verfügbar · schnell · niedrig · falsch → Rückfall */
+    {w:[0,1,2,0], s:5, f:AK}    /* verfügbar · langsam · niedrig · richtig   → nicht automatisiert */
+  ];
+  var t0 = performance.now(), bw = 0, bh = 0;
+  function T(){ return (window.TEXT && TEXT[document.documentElement.lang]) || {}; }
+  function mass(){
+    var w = Math.max(1,c.clientWidth), h = Math.max(1,c.clientHeight), s = Math.min(2,devicePixelRatio||1);
+    if (w===bw && h===bh) return;
+    bw=w; bh=h; c.width=w*s; c.height=h*s; x.setTransform(s,0,0,s,0,0);
+  }
+  function feld(X, Y, breit, hoch, text, farbe, stark){
+    x.strokeStyle = stark ? farbe : LIN;
+    x.lineWidth = stark ? 1.6 : 1;
+    x.fillStyle = stark ? "rgba(138,106,47,.06)" : "#FFFFFF";
+    x.beginPath();
+    if (x.roundRect) x.roundRect(X, Y, breit, hoch, 4); else x.rect(X, Y, breit, hoch);
+    x.fill(); x.stroke();
+    x.fillStyle = stark ? farbe : GRAU;
+    x.font = (stark ? "600 " : "") + '12.5px -apple-system,"Inter","Segoe UI",system-ui,sans-serif';
+    x.textAlign = "center"; x.textBaseline = "middle";
+    x.fillText(text, X + breit/2, Y + hoch/2);
+  }
+  function bild(jetzt){
+    mass();
+    var w = c.clientWidth, h = c.clientHeight, rtl = document.body.dir === "rtl";
+    var t = ruhig ? 5200 : (jetzt - t0);
+    var S = T();
+    var IND = [S.aI1 || "", S.aI2 || "", S.aI3 || "", S.aI4 || ""];
+    var WERT = [
+      [S.aW1a || "", S.aW1b || ""],
+      [S.aW2a || "", S.aW2b || ""],
+      [S.aW3a || "", S.aW3b || "", S.aW3c || ""],
+      [S.aW4a || "", S.aW4b || ""]
+    ];
+    var STRAT = [S.aS1||"", S.aS2||"", S.aS3||"", S.aS4||"", S.aS5||"", S.aS6||""];
+    var TAKT = 6000;                      /* Zeit je Konstellation, zum ruhigen Mitlesen */
+    var nr = Math.floor(t / TAKT) % FAELLE.length, F = FAELLE[nr] || FAELLE[0];
+    if (!F || !isFinite(t)) { requestAnimationFrame(bild); return; }
+    var ueber = Math.min(1, ((t % TAKT) / TAKT) / 0.30);
+    x.clearRect(0,0,w,h);
+    var lx = rtl ? w - 26 - 190 : 26, sx = rtl ? 26 : w - 26 - 215;
+    var zeileH = Math.min(26, (h - 60) / 4 - 14), y0 = 16;
+    /* linke Spalte: die vier Indikatoren mit ihrem Wert im aktuellen Fall */
+    for (var i = 0; i < 4; i++){
+      var Y = y0 + i * (zeileH + 22);
+      x.fillStyle = TINTE;
+      x.font = '600 12px -apple-system,"Inter","Segoe UI",system-ui,sans-serif';
+      x.textAlign = rtl ? "right" : "left"; x.textBaseline = "middle";
+      x.fillText(IND[i], rtl ? lx + 190 : lx, Y + 6);
+      feld(lx, Y + 14, 190, zeileH, WERT[i][F.w[i]] || "", F.f, true);
+    }
+    /* Verbindung zur zugeordneten Strategie */
+    var sh = Math.min(26, (h - 40) / 6), sy0 = 16;
+    var zielY = sy0 + F.s * (sh + 4) + sh/2;
+    var vonY = y0 + 1.5 * (zeileH + 22) + 14;
+    x.strokeStyle = F.f; x.globalAlpha = 0.55; x.lineWidth = 1.4;
+    x.beginPath();
+    var vx = rtl ? lx : lx + 190, zx = rtl ? sx + 215 : sx;
+    x.moveTo(vx, vonY);
+    x.bezierCurveTo((vx+zx)/2, vonY, (vx+zx)/2, zielY, vx + (zx - vx) * ueber, vonY + (zielY - vonY) * ueber);
+    x.stroke(); x.globalAlpha = 1;
+    /* rechte Spalte: die sechs Strategien, die zugeordnete hervorgehoben */
+    for (var k = 0; k < 6; k++){
+      var Y2 = sy0 + k * (sh + 4);
+      var an = (k === F.s) && ueber > 0.9;
+      feld(sx, Y2, 215, sh, STRAT[k], F.f, an);
+    }
+    if (!ruhig) requestAnimationFrame(bild);
+  }
+  requestAnimationFrame(bild);
+})();
+
+var g = null; try { g = localStorage.getItem("sprache"); } catch(e){}
+var b0 = (navigator.language || "de").slice(0,2).toLowerCase();
+setze(g || (["de","en","ar"].indexOf(b0) >= 0 ? b0 : "de"));
+</script>
+</body>
+</html>
